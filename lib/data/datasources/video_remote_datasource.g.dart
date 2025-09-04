@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'api_client.dart';
+part of 'video_remote_datasource.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'api_client.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
 
-class _ApiClient implements ApiClient {
-  _ApiClient(this._dio, {this.baseUrl, this.errorLogger}) {
+class _VideoRemoteDataSource implements VideoRemoteDataSource {
+  _VideoRemoteDataSource(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://api.escuelajs.co/api/v1';
   }
 
@@ -20,7 +20,7 @@ class _ApiClient implements ApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<FileResponse> uploadFileIo(File file) async {
+  Future<FileResponseModel> uploadVideo(File file) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{r'Content-Type': 'multipart/form-data'};
@@ -35,7 +35,7 @@ class _ApiClient implements ApiClient {
         ),
       ),
     );
-    final _options = _setStreamType<FileResponse>(
+    final _options = _setStreamType<FileResponseModel>(
       Options(
             method: 'POST',
             headers: _headers,
@@ -51,9 +51,9 @@ class _ApiClient implements ApiClient {
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late FileResponse _value;
+    late FileResponseModel _value;
     try {
-      _value = FileResponse.fromJson(_result.data!);
+      _value = FileResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
